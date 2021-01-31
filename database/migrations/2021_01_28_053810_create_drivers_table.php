@@ -15,7 +15,19 @@ class CreateDriversTable extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('phone')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->boolean('is_active')->default(true);
+            $table->rememberToken();
             $table->timestamps();
+
+            $table->foreignId('region_id')
+                ->constrained('regions')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

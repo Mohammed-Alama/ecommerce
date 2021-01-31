@@ -40,11 +40,21 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
         'api' => [
-            'driver' => 'token',
+            'driver' => 'passport',
             'provider' => 'users',
-            'hash' => false,
+        ],
+        'api-admins' => [
+            'driver' => 'passport',
+            'provider' => 'admins',
+        ],
+        'api-drivers' => [
+            'driver' => 'passport',
+            'provider' => 'drivers',
+        ],
+        'api-merchants' => [
+            'driver' => 'passport',
+            'provider' => 'merchants',
         ],
     ],
 
@@ -70,11 +80,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'drivers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Driver::class,
+        ],
+        'merchants' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Merchant::class,
+        ],
     ],
 
     /*
